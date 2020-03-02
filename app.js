@@ -12,12 +12,15 @@
 
 const express = require('express')
 require('./src/mongoose')
+const cors = require('cors')
 const Quote = require('./src/quoteModel')
+
 
 const app = express()
 const port = process.env.PORT || 8080
 //const port = ''
 app.use(express.json())
+app.use(cors())
 
 app.get('/help', (req, res) => res.send("Hello World!"));
 

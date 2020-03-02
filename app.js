@@ -15,7 +15,7 @@ require('./src/mongoose')
 const Quote = require('./src/quoteModel')
 
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8080
 //const port = ''
 app.use(express.json())
 
@@ -34,7 +34,7 @@ app.post('/quotes', async (req, res) => {
 })
 
 app.get('/quote', async (req, res) => {
-    
+    let quoteID = req.body.quoteID
     try {
         const quote = await Quote.findOne({ quoteID })
 

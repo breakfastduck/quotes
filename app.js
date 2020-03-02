@@ -34,7 +34,7 @@ app.post('/quotes', async (req, res) => {
 })
 
 app.get('/quote', async (req, res) => {
-    let quoteID = req.body.quoteID
+    let quoteID = req.query.quote
     try {
         const quote = await Quote.findOne({ quoteID })
 

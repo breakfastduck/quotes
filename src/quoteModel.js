@@ -20,12 +20,8 @@ const quoteSchema = new mongoose.Schema({
         postcode: {
             type: String,
             required: true,
-            trim: true,
-            validate(value) {
-                if (!validator.isPostalCode(value, 'BR')) {
-                    throw new Error('Postcode is invalid')
-                }
-            }
+            trim: true
+            
         },
         dob: {
             type: String,
@@ -49,29 +45,36 @@ const quoteSchema = new mongoose.Schema({
         },
         advance: {
             type: Number,
-            required: true
+            required: true,
+            default: 0
         },
         term: {
             type: Number,
-            required: true
+            required: true,
+            default: 0
         },
         rate: {
             type: Number,
-            required: true
+            required: true,
+            default: 0
         },
         apr: {
-            type: Number
+            type: Number,
+            default: 0
         },
         payment: {
-            type: Number
+            type: Number,
+            default: 0
         },
         status: {
             type: String,
             required: true,
-            trim: true
+            trim: true,
+            default: 'Approved'
         },
         tier: {
             type: String,
+            default: 'TIER1'
 
         }
 }, {
